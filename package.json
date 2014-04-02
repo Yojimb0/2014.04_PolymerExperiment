@@ -1,0 +1,20 @@
+{
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-cli": "latest",
+    "grunt-env": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-connect": "latest",
+    "grunt-open": "latest",
+    "grunt-svgmin": "latest",
+    "grunt-autoprefixer": "latest",
+    "grunt-static-inline": "latest",
+    "grunt-contrib-imagemin": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-clean": "latest",
+    "bower": "latest"
+  }
+}

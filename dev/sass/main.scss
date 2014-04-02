@@ -1,0 +1,45 @@
+/* SASS STUFF & INIT
+---------------------------------------*/
+	@import 'normalize';
+	
+	*{box-sizing: border-box;}
+	.cf:before,.cf:after {content: " ";display: table;} .cf:after {clear: both;} .cf {*zoom: 1;}
+
+	html{font-size: 62.5%;}
+	body{height:100%}
+	a {text-decoration: none;-webkit-transition: color .3s ease-in-out;transition: color .3s ease-in-out;}
+
+
+/* MEDIA QUERIES
+---------------------------------------*/
+	// small screens
+	@media screen and (max-width: 480px){
+
+	}
+
+	// Desktop
+	@media screen and (min-width: 856px){
+		
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
