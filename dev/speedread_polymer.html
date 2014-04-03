@@ -67,7 +67,7 @@
 					var speed = this.calculateSpeed(this.speed);
 
 					// If we encounter a line-break, let's do a pause
-					if(this.wordCenter==='\n') speed = ? this.calculateSpeed(this.speed)*5
+					if(this.wordCenter==='\n') speed = this.calculateSpeed(this.speed)*5
 
 					// Wait a bit, and read next word
 					this.idTimeout = window.setTimeout(this.readWord.bind(this),speed)
