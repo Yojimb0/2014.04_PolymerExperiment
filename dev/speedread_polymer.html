@@ -1,0 +1,84 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="wc-speedread" attributes="content">
+	<template>
+		<link rel="stylesheet" href="css/speedread_polymer.css" inline="true">
+		<div class="wc-speedread">
+			<span class="output1 {{wordCenter==='\n'?'break':''}}"><em>{{wordCenter}}</em></span>
+			<div class="controls">
+				<label for="speed">Speed</label>
+				<input id="speed" type="range" value="{{speed}}" step="10">
+				<button on-click="{{readWord}}">Read</button>
+			</div>
+		</div>
+	</template>
+
+	<script>
+		Polymer('wc-speedread', {
+			content:		'Default',
+			speed:			20,
+			speedMax:		50,
+			speedMin:		300,
+			wordStart:		'',
+			wordCenter:		'',
+			wordEnd:		'',
+			wordList:		[],
+			currentWord:	0,
+			idTimeout:		null,
+
+
+			ready: function() {
+				this.initWordList();
+			},
+
+			// Initialize the word list
+			initWordList: function(){
+				// separate line-breaks, to consider them as a specific array element
+				var wordList = this.content.replace(/\n+/g,' \n ');
+				this.wordList = wordList.split(' ');
+				this.currentWord = 0;
+				clearTimeout(this.idTimeout);
+			},
+
+			// Convert 0-100 speed to ms between min and max
+			calculateSpeed: function(s){
+				return ((this.speedMin-this.speedMax)*(100-s)/100)+this.speedMax;
+			},
+
+			// Read a word
+			readWord: function(){
+				var w = this.wordList[this.currentWord];
+				var c = Math.round(w.length/2);
+
+				// Slicing the word
+				this.wordStart = w.substring(0, c-1);
+				this.wordCenter = w[c-1];
+				this.wordEnd = w.substring(c);
+
+				// Set the cursor on the next word
+				this.currentWord++;
+
+				// Is it finished ?
+				if(this.currentWord >= this.wordList.length){
+					this.currentWord = 0;
+					clearTimeout(this.idTimeout);
+				}else{
+					// Check the current speed choosen
+					var speed = this.calculateSpeed(this.speed);
+
+					// If we encounter a line-break, let's do a pause
+					if(this.wordCenter==='\n') speed = ? this.calculateSpeed(this.speed)*5
+
+					// Wait a bit, and read next word
+					this.idTimeout = window.setTimeout(this.readWord.bind(this),speed)
+				}
+			},
+
+			// Text changed ? Reinitialize the word list
+			attributeChanged: function() {
+				this.initWordList();
+			}
+
+		});
+	</script>
+</polymer-element>

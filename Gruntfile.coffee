@@ -20,20 +20,19 @@ module.exports = (grunt) ->
 
 	grunt.initConfig
 		connect:
-			dev:
+			all:
 				options:
 					port: 9000
 					hostname: 'localhost'
-					base: './dev'
-			dist:
-				options:
-					port: 9000
-					hostname: 'localhost'
-					base: './dist'
+			#dist:
+			#	options:
+			#		port: 9000
+			#		hostname: 'localhost'
+			#		base: './dist'
 		
 		open:
 			all:
-				path: 'http://localhost:9000/'
+				path: 'http://localhost:9000/dev/'
 
 		watch:
 			options:
@@ -42,8 +41,7 @@ module.exports = (grunt) ->
 				files: 'dev/sass/**/*.scss'
 				tasks: ['sass', 'autoprefixer']
 			html:
-				files: ['dev/*.html', '!dev/index.html']
-				tasks: ['jade']
+				files: ['dev/*.html']
 			javascript:
 				files: 'dev/js/*.js'
 				tasks: ['jshint']
@@ -56,9 +54,16 @@ module.exports = (grunt) ->
 				options:
 					style: 'compact'
 					sourcemap: true
-				files:
-					'dev/css/main.css': 'dev/sass/main.scss'
-					'dev/css/error.css': 'dev/sass/error.scss'
+				# files:
+				# 	'dev/css/main.css': 'dev/sass/main.scss'
+				# 	'dev/css/error.css': 'dev/sass/error.scss'
+				files: [{
+					expand: true,
+					cwd: 'dev/sass/',
+					src: ['*.scss'],
+					dest: 'dev/css/',
+					ext: '.css'
+				}]
 			dist:
 				options:
 					style: 'compressed'
@@ -164,7 +169,7 @@ module.exports = (grunt) ->
 		'jshint',
 		'sass', 'autoprefixer',
 		'svgmin',
-		'connect:dev', 'open:all', 'watch'
+		'connect', 'open:all', 'watch'
 	]
 
 	grunt.registerTask 'build', [
@@ -175,7 +180,7 @@ module.exports = (grunt) ->
 		'copy',
 		'staticinline',
 		'imagemin',
-		'connect:dist', 'open:all', 'watch'
+		'connect', 'open:all', 'watch'
 	]
 
 

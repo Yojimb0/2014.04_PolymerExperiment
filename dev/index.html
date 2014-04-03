@@ -6,17 +6,22 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="css/main.css">
-	<script src="bower_components/platform/platform.js"></script>
+	<script src="../bower_components/platform/platform.js"></script>
+	<link rel="import" href="speedread_polymer.html">
 </head>
 
 <body>
-	<div class="page">
-		<h1>Base Project</h1>
+	<div class="page" ng-app="">
+		<div ng-controller="SpeedRead">
+			<h1>Speed Read</h1>
+			<textarea name="" id="content" cols="30" rows="10" ng-model="data.content"></textarea>
+			<wc-speedread content="{{data.content}}"></wc-speedread>
+		</div>
 
 	</div>
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="../bower_components/angular/angular.js"></script>
+	<script src="js/controllers/speedRead.js"></script>
 
-	<script src="js/main.js"></script>
 </body>
 </html>

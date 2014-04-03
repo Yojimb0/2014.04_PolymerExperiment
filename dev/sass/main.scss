@@ -5,10 +5,14 @@
 	*{box-sizing: border-box;}
 	.cf:before,.cf:after {content: " ";display: table;} .cf:after {clear: both;} .cf {*zoom: 1;}
 
-	html{font-size: 62.5%;}
-	body{height:100%}
+	html{}
+	body{height:100%;}
 	a {text-decoration: none;-webkit-transition: color .3s ease-in-out;transition: color .3s ease-in-out;}
 
+/* GENERAL
+---------------------------------------*/
+	.page{width:400px;margin:auto}
+	.page textarea{width:100%;margin-bottom: 20px;border: 1px solid #aaa}
 
 /* MEDIA QUERIES
 ---------------------------------------*/

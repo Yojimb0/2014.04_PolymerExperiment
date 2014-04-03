@@ -129,17 +129,27 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .cf { *zoom: 1; }
 
-body { height: 100%; }
-
-a { text-decoration: none; -webkit-transition: color .3s ease-in-out; transition: color .3s ease-in-out; }
-
 /* GENERAL
 ---------------------------------------*/
-.page { width: 400px; margin: auto; }
+.wc-speedread { font-size: 1em; font-family: "Trebuchet MS"; border: 1px solid #eee; padding: 10px; }
 
-.page textarea { width: 100%; margin-bottom: 20px; border: 1px solid #aaa; }
+.output1 { padding: 5px; position: relative; width: 100%; display: inline-block; border: 1px solid #ddd; height: 2em; margin-bottom: 10px; }
+
+.output1 em { color: red; font-style: normal; position: absolute; top: 50%; left: 50%; -webkit-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
+
+.output1 em:before { content: '{{wordStart}}'; color: #000; position: absolute; top: 0; right: 100%; display: inline; white-space: nowrap; }
+
+.output1 em:after { content: '{{wordEnd}}'; color: #000; position: absolute; top: 0; left: 100%; display: inline; white-space: nowrap; }
+
+.controls { text-align: center; }
+
+.controls label { display: inline-block; vertical-align: middle; }
+
+.controls input { margin: 0 15px; display: inline-block; vertical-align: middle; }
+
+.controls button { border: none; background: #333; color: #fff; font-weight: bold; display: inline-block; vertical-align: middle; }
 
 /* MEDIA QUERIES
 ---------------------------------------*/
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=speedread_polymer.css.map */

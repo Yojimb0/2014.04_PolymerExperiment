@@ -1,0 +1,54 @@
+/* SASS STUFF & INIT
+---------------------------------------*/
+	@import 'normalize';
+	
+	*{box-sizing: border-box;}
+	.cf:before,.cf:after {content: " ";display: table;} .cf:after {clear: both;} .cf {*zoom: 1;}
+	@mixin dibm(){display: inline-block;vertical-align: middle;}
+
+/* GENERAL
+---------------------------------------*/
+	.wc-speedread{font-size: 1em;font-family: "Trebuchet MS";border:1px solid #eee;padding:10px}
+	.output1{padding: 5px;position: relative;width: 100%;display: inline-block;border:1px solid #ddd;height:2em;margin-bottom: 10px}
+	// .output1.break{background:#ddd}
+	.output1 em{color: red;font-style: normal;position: absolute;top:50%;left:50%;transform:translateX(-50%) translateY(-50%);;}
+	.output1 em:before{content:'{{wordStart}}';color:#000;position: absolute;top:0;right:100%;display: inline;white-space: nowrap}
+	.output1 em:after{content:'{{wordEnd}}';color:#000;position: absolute;top:0;left:100%;display: inline;white-space: nowrap}
+	.controls{text-align: center;}
+	.controls label{@include dibm;}
+	.controls input{margin:0 15px;@include dibm;}
+	.controls button{border:none;background: #333;color:#fff;font-weight: bold;@include dibm;}
+
+/* MEDIA QUERIES
+---------------------------------------*/
+	// small screens
+	@media screen and (max-width: 480px){
+
+	}
+
+	// Desktop
+	@media screen and (min-width: 856px){
+		
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
