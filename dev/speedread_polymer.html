@@ -34,6 +34,8 @@
 			// Initialize the word list
 			initWordList: function(){
 				// separate line-breaks, to consider them as a specific array element
+				// (We try to get \n minimum once (+) and replace it by [space]\n[space]
+				//  so the split can consider it as one separate item)
 				var wordList = this.content.replace(/\n+/g,' \n ');
 				this.wordList = wordList.split(' ');
 				this.currentWord = 0;
@@ -42,6 +44,10 @@
 
 			// Convert 0-100 speed to ms between min and max
 			calculateSpeed: function(s){
+				// Calculating the range between our wanted min&max values
+				// Multiplied by the _opposite_ of our percent-based range value (100-x)
+				// (Because we want to get something like [1000-200] from a [0-100])
+				// Shift this results by the min boundary
 				return ((this.speedMin-this.speedMax)*(100-s)/100)+this.speedMax;
 			},
 
